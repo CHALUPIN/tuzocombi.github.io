@@ -1,13 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Simple markers</title>
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+  </head>
+  <body>
+    
+    <script>
 
-<HTML>
-<HEAD>
-<TITLE>ejemplo hola mundo</TITLE>
-</HEAD>
-<BODY>
+function initialize() {
+  var myLatLng = {lat: 19.4236295, lng: -99.16330519999997};
+  var mapOptions = {
+    zoom:11,
+    center:myLatLng
+  }
 
-  
-  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d14987.265276123619!2d-98.78116530000001!3d20.09996375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2smx!4v1669438771561!5m2!1sen!2smx" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-<P>Prueba de mapa 1</P>
-</BODY>
-</HTML>
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    <div id="map"></div>
+  </body>
+</html>
