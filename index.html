@@ -1,43 +1,25 @@
-<!DOCTYPE html>
 <html>
   <head>
+    <title>Add Map</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script type="module" src="./index.js"></script>
   </head>
   <body>
-    <iframe
-  width="600"
-  height="450"
-  style="border:0"
-  loading="lazy"
-  allowfullscreen
-  referrerpolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD8SuruL3r1UPYvMn0vcjvTdah0WzraEVs
-    &q=Space+Needle,Seattle+WA">
-</iframe>
-    
-    
-    <script>
-
-function initialize() {
-  var myLatLng = {lat: 19.4236295, lng: -99.16330519999997};
-  var mapOptions = {
-    zoom:11,
-    center:myLatLng
-  }
-
-  var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    title: 'Hello World!'
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
-    
-    
+    <h3>My Google Maps Demo</h3>
+    <!--The div element for the map -->
     <div id="map"></div>
+
+    <!-- 
+     The `defer` attribute causes the callback to execute after the full HTML
+     document has been parsed. For non-blocking uses, avoiding race conditions,
+     and consistent behavior across browsers, consider loading using Promises
+     with https://www.npmjs.com/package/@googlemaps/js-api-loader.
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
+      defer
+    ></script>
   </body>
 </html>
